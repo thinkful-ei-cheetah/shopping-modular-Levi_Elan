@@ -12,17 +12,17 @@ const store = (function() {
   let searchTerm = '';
 
   function findById(id) {
-    store.items.find( item => item.id === id)
+    return store.items.find( item => item.id === id);
   }
 
   function addItem(name) {
     try {
-        Item.validateName(name);
-        const newItem = Item.create(name);
-        this.items.push(newItem);
+      Item.validateName(name);
+      const newItem = Item.create(name);
+      this.items.push(newItem);
     }
     catch(error) {
-        console.log('Cannot add item: ' + error.message)
+      console.log('Cannot add item: ' + error.message);
     }
   }
 
@@ -33,12 +33,12 @@ const store = (function() {
 
   function findAndUpdateName(id, newName) {
     try {
-        Item.validateName(newName);
-        const item = findById(id);
-        item.name = newName;
+      Item.validateName(newName);
+      const item = this.findById(id);
+      item.name = newName;
     }
     catch (error) {
-        console.log(`Cannot update name: ${error.message}`);
+      console.log(`Cannot update name: ${error.message}`);
     } 
   }
 
