@@ -47,6 +47,14 @@ const store = (function() {
     store.items.splice(index, 1);
   }
 
+  function toggleCheckedFilter() {
+    this.hideCheckedItems = !this.hideCheckedItems;
+  }
+
+  function setSearchTerm(term) {
+    this.searchTerm = term;
+  }
+
   return {
     items,
     hideCheckedItems,
@@ -55,6 +63,8 @@ const store = (function() {
     addItem,
     findAndToggleChecked,
     findAndUpdateName,
-    findAndDelete
+    findAndDelete,
+    toggleCheckedFilter,
+    setSearchTerm
   };
 }());
