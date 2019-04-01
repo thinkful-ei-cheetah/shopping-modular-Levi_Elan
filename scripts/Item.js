@@ -17,6 +17,3 @@ const Item = (function(){
     create
   };
 }());
-
-console.log(Item);
-console.log(foo);
